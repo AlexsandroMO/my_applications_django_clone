@@ -27,10 +27,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.task',
+    'apps.insurance',
+    'apps.project_control',
     'accounts',
-    'task',
-    'insurance',
-    'project_control',
     'crispy_forms',
 ]
 
