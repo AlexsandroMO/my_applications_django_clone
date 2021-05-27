@@ -1,0 +1,274 @@
+
+
+.content{
+    padding: 20px; 
+}
+
+h2{
+    color: #878990;
+    margin-bottom: 20px;
+}
+#alinha-news{
+    position: relative;
+    left: -50px;
+}
+
+h3{
+    padding-bottom: 10px;
+}
+
+/* .content-box{
+    background-color: #A0522D;
+} */
+
+.div-box{
+    border-radius: 10px;
+    margin: 10px;
+    padding: 50px;
+    width: 30%;
+    text-align: center;
+    float: left;
+}
+
+#box1{
+    background-color: #4876b4;
+}
+
+#box2{
+    background-color: #d34836;
+}
+
+#box3{
+    background-color: #58c8f3;
+}
+
+#box4{
+    background-color: #fcbb05;
+}
+
+/* #search{
+    width: 300px;
+} */
+
+.pagination{
+    padding-top: 20px;
+}
+
+#i-seta-front{
+    padding-left: 20px;
+}
+
+#i-seta-back{
+    padding-right: 20px;
+}
+
+#search-btn{
+    position:relative;
+    top: -28px;
+    left: 240px;
+}
+
+#carrega-db{
+    display: none;
+}
+
+
+.h3-color{
+    color: #fff;
+}
+
+li{
+    list-style-type: none;
+}
+
+.text{  
+    align-items: center;
+    text-align: center;
+    /* height: 30px; */
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+
+.aba-lateral{    
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align:center;
+    display: block;
+}
+
+.alinha-div{
+    background: #c4dce8;
+    align-items: center;
+    padding-top: 12px;
+    background-color: #c4dce8;
+    border: 5px;
+}
+
+.alinha-table{
+    width: 100%;
+}
+
+.alinha-td{
+    padding-left: 120px;
+    text-align: left;
+}
+
+
+
+/* Class / ID*/
+.alinha-ul{
+    list-style: none;
+    color: #7a7a7a;
+    display: block;
+}
+
+.alinha-li{
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+#alinha-p{
+    display: flex;
+}
+
+a{
+    border-radius: 0px;
+}
+a:link {
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+/* Div bt */
+#a-bt{
+    margin-top: 30px;
+    margin-left: -16px;
+    
+}
+
+.btn{
+    padding-bottom:30px;
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+}
+
+#bt-delete{
+    cursor: pointer;
+    padding-top: 25px;
+    width: 480px;
+} 
+
+#edit-cliente{
+    width: 150px;
+}
+
+.button{
+    width:120px;
+    background-color: #7a7a7a;
+    padding-left: 35px;
+    font-size: 16px;
+}
+
+#cliente-bt{
+    padding-left: 15px;
+}
+/* #edit{
+    padding: auto;
+    width: auto;
+    height: 30px;
+} */
+
+/* .alinha-tab-end{
+    background-color: #b4a800; 
+} */
+
+.form-check{
+    display: inline;
+    float: right;
+}
+
+.form-cliente{
+    display: inline;
+    float: left;
+}
+
+.form-check-label{
+    padding-right: 30px;
+}
+
+
+
+/* Icones */
+
+.fas.fa-plus {
+    cursor: pointer;
+    color: #58c8f3;
+    height: 5px;
+}
+
+.fas.fa-edit {
+    cursor: pointer;
+    color: #13c43f;
+    margin-left: 15px;
+}
+
+.fas.fa-trash {
+    cursor: pointer;
+    color: #db1e47;
+    /* margin-right: 5px; */
+    padding-left: 5px;
+}
+
+.text{
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.field-name{
+    width: 230px;
+}
+
+.field-cpf-cnpj{
+    width: 50px;
+}
+.field-prod{
+    width: 100px;
+}
+.field-agency{
+    width: 50px;
+}
+.field-secure{
+    width: 50px;
+}
+.field-conta{
+    width: 100px;
+}
+.field-gerency{
+    width: 300px;
+}
+.field-policy{
+    width: 250px;
+}
+.field-amount_paid{
+    width: 50px;
+    color: 	#A0522D;
+}
+.field-tel{
+    width: 100px;
+}
+.field-cel{
+    width: 100px;
+}
+.field-email{
+    width: 300px;
+}
+.field-comments{
+    width: 500px;
+}
+.field-date{
+    width: 50px;
+}

@@ -1,0 +1,131 @@
+{% load static %}
+
+<!--https://www.youtube.com/watch?v=wsi0xpHUM00&t=614s-->
+<!DOCTYPE html>
+
+<html lang="pt-br" dir="ltr">
+<head>
+  <title>Administrador de Aplicações | Site em Django</title>
+
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/nav_sidebar.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/changelists.css">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+  
+  <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+
+  <meta name="robots" content="NONE,NOARCHIVE">
+
+</head>
+
+<body class=" app-task model-cliente change-list" data-admin-utc-offset="-10800">
+
+    <!-- Container -->
+    <div id="container">
+        <!-- Header -->
+        <div id="header">
+            <div id="branding">
+                <h1 id="site-name"><a href="/">Administração de Seguros</a></h1>
+            </div>
+
+            <div id="user-tools">
+              
+                    Bem-vindo(a),
+                    <strong>Controle de Seguros</strong>.
+                        <a href="/admin">Admin</a> /
+                        <a href="/admin/password_change/">Alterar senha</a> /
+                        <a href="/admin/logout/">Encerrar sessão</a>
+                    </div>
+            </div>
+            <!-- END Header -->
+
+<div class="main" id="main">
+          
+    <button class="sticky toggle-nav-sidebar" id="toggle-nav-sidebar" aria-label="Alternar navegação"></button>
+    <nav class="sticky" id="nav-sidebar">
+
+          <div class="alinha-div">
+            <p class="aba-lateral" title="Edição de Tabelas relacionadas a clientes">Edição de Tabelas</p>
+            <table class="alinha-table">
+              <tr>
+                <th><a href="/admin/auth/user/" aria-current="page">Usuários</a></th>
+                <td><a href="/admin/auth/user/add/" class="alinha-td">Adicionar</a></td>
+            </tr>
+            </table>
+        </div>
+
+          <div class="alinha-div">
+            <p class="aba-lateral" title="Edição de Tabelas relacionadas a clientes">Atividades</p>
+            <table class="alinha-table">
+              <tr>
+                <th>Clientes</th>
+                <td><a href="/" class="alinha-td">Editar</a></td>
+              </tr>
+              <tr>
+                <th>Produtos</th>
+                <td><a href="/admin/task/product/" class="alinha-td">Editar</a></td>
+              </tr>
+              <tr>
+                <th>Agências</th>
+                <td><a href="/admin/task/agency/" class="alinha-td">Editar</a></td>
+              </tr>
+              <tr>
+                <th>Seguradoras</th>
+                <td><a href="/admin/task/secure/" class="alinha-td">Editar</a></td>
+              </tr>
+              <tr>
+                <th id="db-carga">Carga DB</th>
+                <td><a href="#" class="alinha-td" id="carrega-db">Carregar</a></td>
+              </tr>
+            </table>
+          </div>
+     
+</nav>
+           
+<div class="content">
+
+    {% block content %}{% endblock %}
+            
+    <!-- END Content -->
+    <div id="footer"></div>
+        </div>
+        </div>
+    </div>
+    <!-- END Container -->
+    <cuponomia-notifications></cuponomia-notifications>
+
+</body>
+
+  <script src="{% static 'js/jquery-1.8.2.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.js' %}"></script>
+
+  <script src="/static/admin/js/nav_sidebar.js" defer></script>
+
+  <script src="/static/admin/js/vendor/jquery/jquery.js"></script>
+  <script src="/static/admin/js/jquery.init.js"></script>
+  <script src="/static/admin/js/core.js"></script>
+  <script src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+  <script src="/static/admin/js/actions.js"></script>
+  <script src="/static/admin/js/urlify.js"></script>
+  <script src="/static/admin/js/prepopulate.js"></script>
+  <script src="/static/admin/js/vendor/xregexp/xregexp.js"></script>    
+
+  <script src="/admin/jsi18n/"></script>
+
+  <script src="{% static 'js/scripts.js' %}"></script>
+   
+</html>
+
+<!--teste heroku-->
+
+<!-- https://bootsnipp.com/snippets/0BDPG -->
+
