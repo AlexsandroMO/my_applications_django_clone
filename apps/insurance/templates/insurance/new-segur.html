@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Adicione uma tarefa{% endblock %}
+
+{% block content %}
+
+<div id="content" class="">
+    
+    <h2>Adicione Novo Cliente</h2>
+    <div id="content-main">
+        <div id="content-main">
+            <ul class="object-tools">  
+                <li><input class="button" onclick="window.history.go(-1);" value="Voltar"></li>
+            </ul>
+
+    <div class="module" id="changelist">
+        <div class="changelist-form-container">
+            <!-- Form -->
+            <form id="changelist-form" method="post" novalidate="">
+            <input type="hidden" name="csrfmiddlewaretoken" value="TessxjKpLI1tDZBRnp7gv6zZNzoYmPtbDchuvswvHuwJdazLjGBOMQ1y8cY9c7pI">
+        </did>
+
+<div class="row">
+    <div class="col-md-6 offset-md-0">
+        <div class="card  auth-card">
+            <div class="card-body" id="alinha-news">
+
+                <div class="offset-1 col-11 list-div">
+                   
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <!-- <input type="submit" class="btn btn-success" value="Criar Tarefa"> -->
+                        <input type="submit"  class="btn btn-secondary btn-lg btn-block" value="Criar Cliente">
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+      </div>
+
+    </div>
+</did>
+
+{% endblock %}
+
+

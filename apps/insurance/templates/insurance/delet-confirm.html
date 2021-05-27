@@ -1,0 +1,52 @@
+
+  {% extends 'base.html' %}
+  {% block content %}
+
+
+  <div id="content" class="">
+    
+    <h2> Tem certeza?</h2>
+        <div id="content-main">
+            <div id="content-main">
+                <ul class="object-tools">  
+                    <li><button class="btn btn-secondary btn-lg btn-block" onclick="window.history.go(-1);"> Voltar </button></li>
+                </ul>
+    
+        <p>Deseja realmente apagar o cliente selecionado?<br>Todos os seguintes objetos e seus itens relacionados serão removidos:</p>
+
+        <h3>Cliente</h3>
+        
+            <ul class="alinha-ul">
+                <table>
+                    <tr>
+                        <td><li class="alinha-li"><b>Nome: </b></li></td>
+                        <td><li class="alinha-li"><a href="{% url 'edit-segur' id  %}">{{Clientes.0.name}}</a></li></td>
+                    </tr>
+                    <tr>
+                        <td><li class="alinha-li"><b>CPF / CNPJ: </b></li></td>
+                        <td><li class="alinha-li">{{Clientes.0.cpf}}</li></td>
+                    </tr>
+                    <tr>
+                        <td><li class="alinha-li"><b>Apolice: </b></li></td>
+                        <td><li class="alinha-li"> {{Clientes.0.policy}}</li></td>
+                    </tr>
+                    <tr>
+                        <td><li class="alinha-li"><b>Data do Contrato: </b></li></td>
+                        <td><li class="alinha-li">{{Clientes.0.date_contract}}</li></td>
+                    </tr>
+                    
+                </table>
+            </ul>
+        
+            <div class="offset-1 col-4 list-div" id="a-bt">
+ 
+                <a href="{% url 'delete-segur' id  %}"><input class="btn btn-secondary btn-lg btn-block" value="Deletar" id="bt-delete"></a>
+
+            </div>
+
+        </div>
+
+    </div>
+            
+
+  {% endblock %}

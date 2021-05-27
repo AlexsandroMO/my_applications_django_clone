@@ -1,8 +1,118 @@
+
+<script src="/static/js/jquery-1.8.2.js"></script>
+<script src="/static/js/jquery-ui.js"></script>
+
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% block content %}
+
+<!-- Message -->
+    <!-- <ul class="messagelist">
+        <li class="success">O cliente “<a href="/admin/task/cliente/2/change/">BARBARA CRISTINA MARTINS DA SILVA</a>” foi alterado com sucesso.</li>
+    </ul> -->
+
+<!-- Content -->
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div id="content" class="">
+
+        <div class="content-box">
+            <h2>Welcome to Development Environment With Django</h2>
+            <div class="aling-div-box">
+                <div class="div-box" id="box1">
+                    <i class="fa fa-facebook"></i>
+                    <ul>
+                        <a href="{% url 'home-insurance' %}"><sctrong><h3 class="h3-color">Insurances</h3></sctrong></a>
+                    </ul>
+                </div>
+     
+                <div class="div-box" id="box2">
+                    <i class="fa fa-facebook"></i>
+                    <ul>
+                        <sctrong><h3 class="h3-color">Analysis</h3>
+                    </ul>
+                </div>
+
+                <div class="div-box" id="box3">
+                    <i class="fa fa-facebook"></i>
+                    <ul>
+                        <sctrong><h3 class="h3-color">Project Control</h3>
+                    </ul>
+                </div>
+
+                <div class="div-box" id="box4">
+                    <i class="fa fa-facebook"></i>
+                    <ul>
+                        <sctrong><h3 class="h3-color">Outros</h3>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+    
+<input type="text" id="p-status" value="{{status}}" hidden></p>
+
+<script>
+
+    $(window).load(function(){
+
+        let lido = document.getElementById('p-status').value
+        if (lido == 'True'){
+            console.log('>>>>>>>>>>', lido)
+            alert('Planilha Carregada com Sucesso!')
+        }
+        
+    });
+
+    $('#cliente-bt').click(function() {
+        window.location.assign("http://127.0.0.1:8000/lista_cliente");
+        
+    });
+
+    $('#inline-radio1').click(function() {
+       let lido = document.getElementById('inline-radio1').value
+       console.log('HI', lido)
+       window.location.assign(`http://127.0.0.1:8000/?${lido}`);
+    });
+    $('#inline-radio2').click(function() {
+       let lido = document.getElementById('inline-radio2').value
+       console.log('HI', lido)
+       window.location.assign(`http://127.0.0.1:8000/?${lido}`);
+     });
+    $('#inline-radio3').click(function() {
+       let lido = document.getElementById('inline-radio3').value
+       console.log('HI', lido)
+       window.location.assign(`http://127.0.0.1:8000/?${lido}`);
+    });
+    $('#inline-radio4').click(function() {
+       let lido = document.getElementById('inline-radio4').value
+       console.log('HI', lido)
+       window.location.assign(`http://127.0.0.1:8000/?${lido}`);
+    });
+
+    $('#db-carga').click(function() {
+        var display = document.getElementById('carrega-db').style.display;
+        
+        if(display == "none")
+            document.getElementById('carrega-db').style.display = 'none';
+        else
+            document.getElementById('carrega-db').style.display = 'block';
+    });
+
+</script>
 
 
-{% block main %}
+{% endblock %}
+
+
 
 <div class="row">
     <div class="col-sm">
@@ -19,5 +129,3 @@
     </div> 
 </div>
 
-
-{% endblock %}

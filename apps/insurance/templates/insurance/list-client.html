@@ -1,0 +1,225 @@
+
+<script src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="content" class="">
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    
+    <h2 id="esconde-test"><a href="{% url 'new-segur' %}"><i class="fas fa-plus"></a></i> Lista de Clientes</h2>
+        <div id="content-main">
+            <div id="content-main">
+                <ul class="object-tools">  
+                    <li><input class="button" onclick="window.history.go(-1);" value="Voltar"></li>
+                </ul>
+
+                <div class="col-2 search-div">
+                    <form method="GET" id="search-form">
+                        <input class="form-control" type="text" id="search" name="search" placeholder="Digite o Nome do Cliente..." value="{{ request.GET.search }}"><i class="fas fa-search" id="search-btn"></i>
+                    </form>
+                </div>
+
+
+    <div class="module" id="changelist">
+        <div class="changelist-form-container">
+            <!-- Form -->
+            <form id="changelist-form" method="post" novalidate="">
+            <input type="hidden" name="csrfmiddlewaretoken" value="TessxjKpLI1tDZBRnp7gv6zZNzoYmPtbDchuvswvHuwJdazLjGBOMQ1y8cY9c7pI">
+
+  
+    <br>
+<!-- Tabela de Clientes-->
+    <div class="results">
+        <table id="result_list" class="table table-striped table-bordered dt-responsive nowrap no-footer">
+            <thead>
+                <tr>
+                    <th scope="col" class="action-checkbox-column">
+                        <div class="text"><span><input type="checkbox" id="action-toggle"></span></div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-name">
+                        <div class="text"> NOME DO CLIENTE </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-cpf">
+                        <div class="text"> CPF </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-prod">
+                        <div class="text"> PRODUTO </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-agency">
+                        <div class="text"> AGÊNCIA </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-secure">
+                        <div class="text"> SEGURO </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-conta">
+                        <div class="text"> NÚMERO DA CONTA </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-gerency">
+                        <div class="text"> NOME DO GERENTE </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-policy">
+                        <div class="text"> NÚMERO DA APOLICE </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-amount_paid">
+                        <div class="text"> VALOR PAGO </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-tel1">
+                        <div class="text"> TELEFONE </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-cel1">
+                        <div class="text"> CELULAR </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-email">
+                        <div class="text"> E-MAIL </div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-comments">
+                        <div class="text">OBS</div>
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-date">
+                        <div class="text"> Date </div>
+                        <!-- <div class="text"><a href="?o=17">Date</a></div> -->
+                        <div class="clear"></div>
+                    </th>
+                    <th scope="col" class="sortable column-name" id="hide-field-col">
+                        <div class="text"> DEL </div>
+                        <div class="clear"></div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% csrf_token %}
+                {% for cliente in Clientes %}
+                <tr>
+                                                            
+                    <td class="action-checkbox">
+                        <input type="checkbox" name="_selected_action" value="{{cliente.id}}" id="click-check" class="action-select">
+                    </td>
+                   
+                    <!-- <td class="trash-fa"><a href="delete_segur/{{ cliente.id }}"><i class="fas fa-trash"></i></a></td> -->
+                    <!-- <td class="trash-fa"><i class="fas fa-trash"></i><p id="p-id">{{ cliente.id }}</p></td> -->
+                    <!-- <td class="edit-fa"><a href="{% url 'edit-segur' cliente.id  %}"><i class="fas fa-edit"></i></a></td> -->
+
+                    <td class="field-name"><a href="{% url 'edit-segur' cliente.id  %}">{{cliente.name}}</a></td>
+                    <td class="field-cpf-cnpj" id="cpf-cnpj">{{cliente.cpf}} {{cliente.cnpj}}</td>
+                    <td class="field-prod nowrap">{{cliente.prod}}</td>
+                    <td class="field-agency nowrap">{{cliente.agency}}</td>
+                    <td class="field-secure nowrap">{{cliente.secure}}</td>
+                    <td class="field-conta">{{cliente.conta}}</td>
+                    <td class="field-gerency">{{cliente.gerency}}</td>
+                    <td class="field-policy">{{cliente.policy}}</td>
+                    <td class="field-amount_paid"><b>R$ {{cliente.amount_paid}}</b></td>
+                    {% if cliente.tel1 != '' and cliente.tel2 == '' %}
+                        <td class="field-tel">{{cliente.tel1}}</td>
+                    {% elif cliente.tel1 != '' and cliente.tel2 != '' %}
+                        <td class="field-tel">{{cliente.tel1}} | {{cliente.tel2}}</td>
+                    {% else %}
+                        <td class="field-tel"></td>
+                    {% endif %}
+
+                    {% if cliente.cel1 != '' and cliente.cel2 == '' %}
+                        <td class="field-cel">{{cliente.cel1}}</td>
+                    {% elif cliente.cel1 != '' and cliente.cel2 != '' %}
+                        <td class="field-tel">{{cliente.cel1}} | {{cliente.cel2}}</td>
+                    {% else %}
+                        <td class="field-cel"></td>
+                    {% endif %}
+                    <!-- <td class="field-cel1">{{cliente.cel1}} | {{cliente.cel2}}</td> -->
+                    <td class="field-email">{{cliente.email}}</td>
+                    <td class="field-comments">{{cliente.comments}}</td>
+                    <td class="field-date nowrap">{{cliente.date_contract}}</td>
+                    <td class="trash-fa"><a href="{% url 'delete-confir' cliente.id  %}"><i class="fas fa-trash"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if Clientes.has_previous %}
+                <a href="?page={{ Clientes.previous_page_number }}"><i class="fas fa-arrow-left" id="i-seta-back"></i></a>
+            {% endif %}
+            
+            {% if Clientes.paginator.num_pages %}
+            <span class="current">
+                {{ Clientes.number }} de {{ Clientes.paginator.num_pages }}
+            </span>
+            {% endif %}
+        
+            {% if Clientes.has_next %}
+                <a href="?page={{ Clientes.next_page_number }}"><i class="fas fa-arrow-right" id="i-seta-front"></i></a>
+            {% endif %}
+        </span>
+    </div>
+    
+    <!-- {% if length > 1 %}
+        <p class="paginator">{{length}} Clientes</p>
+    {% else %}
+        <p class="paginator">{{length}} Cliente</p>
+    {% endif %}  
+  -->
+    </form>
+    </div>
+
+
+   
+
+                
+            </div>
+          </div>
+        
+          <br class="clear">
+        </div>    
+        
+        <!-- <script>
+
+            var status = 0;
+        
+            $(document).ready(function() {
+                $('td:nth-child(1),th:nth-child(1)').hide();
+                $('td:nth-child(2),th:nth-child(2)').hide();
+            });
+        
+            $('#edit').click(function() {
+                console.log('hi')
+                if (status == 0){
+                    status = 1;
+                    $('td:nth-child(1),th:nth-child(1)').show();
+                    $('td:nth-child(2),th:nth-child(2)').show();
+                }
+                else{
+                    status = 0;
+                    $('td:nth-child(1),th:nth-child(1)').hide();
+                    $('td:nth-child(2),th:nth-child(2)').hide();
+                }
+        
+            });
+        </script> -->
+
+{% endblock %}
