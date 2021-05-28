@@ -36,6 +36,11 @@ h3{
     float: left;
 }
 
+#branding{
+    display: flex;
+}
+
+
 #box1{
     background-color: #4876b4;
 }

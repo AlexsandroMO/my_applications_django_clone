@@ -33,8 +33,14 @@
     <div id="container">
         <!-- Header -->
         <div id="header">
-            <div id="branding">
-                <h1 id="site-name"><a href="/">Development Environment</a></h1>
+
+          <div id="branding"> 
+              <a href="/"><i class="fas fa-bars fa-2x"></i></a>
+              {% if oficial_name == 'Development Environment' %}
+                <h1 id="site-name"><a href="/">&nbsp;&nbsp;&nbsp;&nbsp;{{oficial_name}}</a></h1>
+              {% else %}
+                <h1 id="site-name"><a href="{% url 'home-insurance' %}">&nbsp;&nbsp;&nbsp;&nbsp;{{oficial_name}}</a></h1>
+              {% endif %}
             </div>
 
             <div id="user-tools">
@@ -84,7 +90,7 @@
               </tr>
               <tr>
                 <th id="db-carga">Carga DB</th>
-                <td><a href="#" class="alinha-td" id="carrega-db">Carregar</a></td>
+                <td><a href="{% url 'db-atualyze' %}" class="alinha-td" id="carrega-db">Carregar</a></td>
               </tr>
             </table>
           </div>

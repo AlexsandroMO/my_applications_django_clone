@@ -5,4 +5,5 @@ from django.contrib.auth.decorators import login_required
 
 #@login_required
 def home(request):
-    return render(request,'task/index.html')
+    oficial_name = 'Development Environment'
+    return render(request,'task/index.html', {'oficial_name':oficial_name})

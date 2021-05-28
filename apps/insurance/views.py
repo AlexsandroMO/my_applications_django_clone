@@ -7,10 +7,10 @@ from .models import Cliente
 from .forms import ClienteForm
 
 
-#import FormatTexts as ft
+import FormatTexts as ft
 import datetime
 from datetime import date
-#import atualyze_database as atual_db
+import atualyze_database as atual_db
 
 #_lte - menor ou igual à
 #_gte maior ou igual
@@ -23,7 +23,9 @@ from datetime import date
 
 def home_insurance(request):
 
-    return render(request,'insurance/index-insurance.html')
+    oficial_name = 'Controle de Seguros'
+
+    return render(request,'insurance/index-insurance.html', {'oficial_name':oficial_name})
 
 
 # def index(request):
@@ -64,6 +66,8 @@ def home_insurance(request):
 
 @login_required
 def ListaCliente(request):
+
+    oficial_name = 'Controle de Seguros'
     
     search = request.GET.get('search')
     filter = request.GET.get('filter')
@@ -118,13 +122,15 @@ def ListaCliente(request):
         else:
             a.tel2 = ''
 
-        num += 1
+    
     #--------------------------------------------------------------------
-    return render(request,'insurance/list-client.html', {'Clientes': Clientes, 'length':length})
+    return render(request,'insurance/list-client.html', {'oficial_name':oficial_name, 'Clientes': Clientes, 'length':length})
 
 
 @login_required
 def VCliente(request):
+
+    oficial_name = 'Controle de Seguros'
 
     Clientes = Cliente.objects.all().order_by('name')
 
@@ -162,10 +168,12 @@ def VCliente(request):
             a.tel2 = ''
     #--------------------------------------------------------------------
 
-    return render(request,'insurance/v-cliente.html', {'Clientes': Clientes, 'length':length})
+    return render(request,'insurance/v-cliente.html', {'oficial_name':oficial_name, 'Clientes': Clientes, 'length':length})
 
 @login_required
 def EditSegur(request, id):
+
+    oficial_name = 'Controle de Seguros'
 
     data_atual = date.today()
 
@@ -184,14 +192,20 @@ def EditSegur(request, id):
             task.save()
             return redirect('/')
         else:
-            return render(request,'insurance/edit-seguros.html', {'form': form, 'task': task})
+            return render(request,'insurance/edit-seguros.html', {'oficial_name':oficial_name, 'form': form, 'task': task})
 
     else:
-        return render(request,'insurance/edit-seguros.html', {'form': form, 'task': task})
+        return render(request,'insurance/edit-seguros.html', {'oficial_name':oficial_name, 'form': form, 'task': task})
 
 
 @login_required
 def NewSegur(request):
+
+    oficial_name = 'Controle de Seguros'
+
+    today = datetime.datetime.now()
+    implement = str(today)[:10]
+    cont_implement = implement.replace('-','')
 
     Clientes = Cliente.objects.all()
     length = len(Clientes)
@@ -202,15 +216,18 @@ def NewSegur(request):
         if form.is_valid():
             task = form.save(commit=False)
             if task.policy == '0':
-                task.policy = '{}00000000000000000{}'.format(cont_implement, length)
+                task.policy = '{}000000000{}'.format(cont_implement, length)
             task.save()
             return redirect('/')
     else:
         form = ClienteForm()
-        return render(request, 'insurance/new-segur.html', {'form': form})
+        return render(request, 'insurance/new-segur.html', {'oficial_name':oficial_name, 'form': form})
 
 
 def DeleteSegur(request, id):
+
+    oficial_name = 'Controle de Seguros'
+
     Clientes = get_object_or_404(Cliente, pk=id)
     Clientes.delete()
 
@@ -219,17 +236,20 @@ def DeleteSegur(request, id):
     return redirect('/lista_cliente')
 
 def DeleteConfirm(request, id):
+    oficial_name = 'Controle de Seguros'
 
     Clientes = Cliente.objects.filter(id=id)
 
-    return render(request, 'insurance/delet-confirm.html',{ 'id':id, 'Clientes':Clientes})
+    return render(request, 'insurance/delet-confirm.html',{'oficial_name':oficial_name, 'id':id, 'Clientes':Clientes})
 
 
 def DB_Atualyze(request):
 
-    atual_db.DbDb()
+    oficial_name = 'Controle de Seguros'
+
+    #atual_db.DbDb()
     status = True
-    return render(request, 'insurance/index.html',{'status':status})
+    return render(request, 'insurance/index-insurance.html',{'oficial_name':oficial_name, 'status':status})
 
 
 
